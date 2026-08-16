@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyUtility - 便利ツールポータル</title>
+    <meta name="description" content="日常や作業で使える便利なWebツールをまとめたポータルサイトです。">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo-badge">
+            <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
+            <span>MyUtility Portal</span>
+        </div>
+        <h1 class="portal-title">MyUtility</h1>
+        <p class="portal-subtitle">日常や開発作業をサポートする便利なWebツール集</p>
+    </header>
+
+    <main>
+        <div class="section-title">
+            <i data-lucide="grid" style="width: 16px; height: 16px;"></i>
+            <span>利用可能なツール</span>
+        </div>
+
+        <div class="tool-grid">
+            <!-- ランダム文字列生成ツール -->
+            <a href="random_strings/index.html" class="tool-card">
+                <div class="icon-wrapper">
+                    <i data-lucide="shuffle" style="width: 28px; height: 28px;"></i>
+                </div>
+                <div class="tool-name">ランダム文字列生成</div>
+                <div class="tool-desc">パスワードや各種トークンなどの文字列を生成</div>
+            </a>
+
+            <!-- 今後の拡張用：準備中ダミーカード1 -->
+            <div class="tool-card disabled">
+                <span class="badge-coming-soon">準備中</span>
+                <div class="icon-wrapper">
+                    <i data-lucide="file-json" style="width: 28px; height: 28px;"></i>
+                </div>
+                <div class="tool-name">JSON フォーマッター</div>
+                <div class="tool-desc">JSONの整形・検証・圧縮を行うツール</div>
+            </div>
+
+            <!-- 今後の拡張用：準備中ダミーカード2 -->
+            <div class="tool-card disabled">
+                <span class="badge-coming-soon">準備中</span>
+                <div class="icon-wrapper">
+                    <i data-lucide="type" style="width: 28px; height: 28px;"></i>
+                </div>
+                <div class="tool-name">文字数カウンター</div>
+                <div class="tool-desc">テキストの文字数や行数をリアルタイムカウント</div>
+            </div>
+
+            <!-- 今後の拡張用：準備中ダミーカード3 -->
+            <div class="tool-card disabled">
+                <span class="badge-coming-soon">準備中</span>
+                <div class="icon-wrapper">
+                    <i data-lucide="palette" style="width: 28px; height: 28px;"></i>
+                </div>
+                <div class="tool-name">カラー変換</div>
+                <div class="tool-desc">HEX, RGB, HSLの相互変換ツール</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 MyUtility. All rights reserved.
+    </footer>
+
+    <script>
+        // Lucideアイコンの読み込みと適用
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

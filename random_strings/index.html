@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ランダム文字列生成ツール - MyUtility</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="../index.html" class="back-link">
+            <i data-lucide="arrow-left"></i>
+            ポータルへ戻る
+        </a>
+        <span style="font-weight: 600; color: var(--text-secondary);">MyUtility</span>
+    </header>
+
+    <main>
+        <div class="card">
+            <h1>
+                <i data-lucide="shuffle" style="color: var(--accent-color);"></i>
+                ランダム文字列生成ツール
+            </h1>
+            <p class="subtitle">用途に合わせた文字種や長さを指定して、ランダムな文字列を一括生成します。</p>
+
+            <div class="settings-section">
+                <!-- 文字の長さ設定 -->
+                <div class="setting-group">
+                    <div class="setting-label">
+                        <span>文字の長さ (1行あたり)</span>
+                        <span class="setting-value" id="length-value">10</span>
+                    </div>
+                    <div class="slider-container">
+                        <input type="range" id="length-range" min="4" max="128" value="10">
+                    </div>
+                </div>
+
+                <!-- 生成行数設定 -->
+                <div class="setting-group">
+                    <div class="setting-label">
+                        <span>生成行数</span>
+                        <span class="setting-value" id="count-value">5</span>
+                    </div>
+                    <div class="slider-container">
+                        <input type="range" id="count-range" min="1" max="100" value="5">
+                    </div>
+                </div>
+
+                <!-- 文字種の選択 -->
+                <div class="setting-group">
+                    <div class="setting-label">使用する文字種</div>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-label checked">
+                            <input type="checkbox" id="cb-uppercase">
+                            <span>英大文字 (A-Z)</span>
+                        </label>
+                        <label class="checkbox-label checked">
+                            <input type="checkbox" id="cb-lowercase">
+                            <span>英小文字 (a-z)</span>
+                        </label>
+                        <label class="checkbox-label checked">
+                            <input type="checkbox" id="cb-numbers" checked>
+                            <span>数字 (0-9)</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="cb-symbols">
+                            <span>記号 (!@#...)</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="cb-hiragana">
+                            <span>ひらがな</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="cb-katakana">
+                            <span>カタカナ</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 詳細オプション -->
+                <div class="setting-group">
+                    <label class="switch-label">
+                        <div class="switch-info">
+                            <span class="switch-title">類似文字を除外</span>
+                            <span class="switch-desc">見間違いやすい文字 (1, l, I, 0, O, o) を除外します</span>
+                        </div>
+                        <div class="switch-control">
+                            <input type="checkbox" id="exclude-similar">
+                            <span class="switch-slider"></span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 生成ボタン -->
+            <button id="btn-generate" class="btn-generate">
+                <i data-lucide="sparkles"></i>
+                ランダム文字列を生成
+            </button>
+
+            <!-- 生成結果セクション -->
+            <div id="result-section" class="result-section">
+                <div class="result-header">
+                    <div class="result-title">
+                        <i data-lucide="terminal" style="color: var(--accent-success); width: 18px; height: 18px;"></i>
+                        <span>生成結果</span>
+                    </div>
+                    <button id="btn-copy-all" class="btn-secondary">
+                        <i data-lucide="copy"></i>
+                        <span>すべてコピー</span>
+                    </button>
+                </div>
+                <div id="result-list" class="result-list">
+                    <!-- JSで結果行が挿入されます -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 MyUtility. All rights reserved.
+    </footer>
+
+    <!-- トースト通知用の容器 -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script>
+        // Lucideアイコンの初期化（静的要素用）
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
