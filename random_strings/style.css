@@ -240,9 +240,16 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 .accordion-trigger {
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    font-family: inherit;
     width: 100%;
+    display: -webkit-flex;
     display: flex;
+    -webkit-justify-content: space-between;
     justify-content: space-between;
+    -webkit-align-items: center;
     align-items: center;
     padding: 1.1rem 1.25rem;
     background: transparent;
@@ -261,7 +268,9 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 .trigger-title {
+    display: -webkit-flex;
     display: flex;
+    -webkit-align-items: center;
     align-items: center;
     gap: 0.75rem;
 }
@@ -270,7 +279,9 @@ input[type="range"]::-webkit-slider-thumb:hover {
     color: var(--accent-color);
     width: 18px;
     height: 18px;
+    display: -webkit-inline-flex;
     display: inline-flex;
+    -webkit-align-items: center;
     align-items: center;
 }
 
@@ -286,19 +297,21 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 .accordion-content {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .accordion-trigger[aria-expanded="true"] + .accordion-content {
-    grid-template-rows: 1fr;
+    max-height: 350px; /* iPhoneで確実に収まる十分な高さ */
 }
 
 .accordion-content-inner {
     overflow: hidden;
     padding: 0 1.25rem;
+    display: -webkit-flex;
     display: flex;
+    -webkit-flex-direction: column;
     flex-direction: column;
     gap: 1.25rem;
     transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
