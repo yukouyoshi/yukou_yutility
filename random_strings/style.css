@@ -226,6 +226,88 @@ input[type="range"]::-webkit-slider-thumb:hover {
     color: var(--text-primary);
 }
 
+/* アコーディオン (詳細設定用) */
+.accordion-group {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.01);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-group:focus-within {
+    border-color: var(--border-focus);
+}
+
+.accordion-trigger {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 1.25rem;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    outline: none;
+    transition: background-color 0.2s ease;
+}
+
+.accordion-trigger:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.trigger-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.trigger-title i {
+    color: var(--accent-color);
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.chevron-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--text-secondary);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-trigger[aria-expanded="true"] .chevron-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-trigger[aria-expanded="true"] + .accordion-content {
+    grid-template-rows: 1fr;
+}
+
+.accordion-content-inner {
+    overflow: hidden;
+    padding: 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-trigger[aria-expanded="true"] + .accordion-content .accordion-content-inner {
+    padding: 0 1.25rem 1.5rem 1.25rem;
+}
+
 /* オプションスイッチ等 */
 .switch-label {
     display: flex;
