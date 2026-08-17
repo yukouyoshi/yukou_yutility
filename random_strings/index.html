@@ -35,28 +35,6 @@
             <p class="subtitle">用途に合わせた文字種や長さを指定して、ランダムな文字列を一括生成します。</p>
 
             <div class="settings-section">
-                <!-- 文字の長さ設定 -->
-                <div class="setting-group">
-                    <div class="setting-label">
-                        <span>文字の長さ (1行あたり)</span>
-                        <span class="setting-value" id="length-value">10</span>
-                    </div>
-                    <div class="slider-container">
-                        <input type="range" id="length-range" min="4" max="128" value="10">
-                    </div>
-                </div>
-
-                <!-- 生成行数設定 -->
-                <div class="setting-group">
-                    <div class="setting-label">
-                        <span>生成行数</span>
-                        <span class="setting-value" id="count-value">5</span>
-                    </div>
-                    <div class="slider-container">
-                        <input type="range" id="count-range" min="1" max="100" value="5">
-                    </div>
-                </div>
-
                 <!-- 文字種の選択 -->
                 <div class="setting-group">
                     <div class="setting-label">使用する文字種</div>
@@ -88,18 +66,54 @@
                     </div>
                 </div>
 
-                <!-- 詳細オプション -->
-                <div class="setting-group">
-                    <label class="switch-label">
-                        <div class="switch-info">
-                            <span class="switch-title">類似文字を除外</span>
-                            <span class="switch-desc">見間違いやすい文字 (1, l, I, 0, O, o) を除外します</span>
+                <!-- 詳細設定 (アコーディオン) -->
+                <div class="accordion-group">
+                    <button type="button" class="accordion-trigger" id="btn-toggle-advanced" aria-expanded="false" aria-controls="advanced-settings-content">
+                        <span class="trigger-title">
+                            <i data-lucide="sliders-horizontal"></i>
+                            詳細設定 (文字の長さ、生成行数、類似文字除外)
+                        </span>
+                        <i data-lucide="chevron-down" class="chevron-icon"></i>
+                    </button>
+                    <div class="accordion-content" id="advanced-settings-content">
+                        <div class="accordion-content-inner">
+                            <!-- 文字の長さ設定 -->
+                            <div class="setting-group">
+                                <div class="setting-label">
+                                    <span>文字の長さ (1行あたり)</span>
+                                    <span class="setting-value" id="length-value">10</span>
+                                </div>
+                                <div class="slider-container">
+                                    <input type="range" id="length-range" min="4" max="128" value="10">
+                                </div>
+                            </div>
+
+                            <!-- 生成行数設定 -->
+                            <div class="setting-group">
+                                <div class="setting-label">
+                                    <span>生成行数</span>
+                                    <span class="setting-value" id="count-value">5</span>
+                                </div>
+                                <div class="slider-container">
+                                    <input type="range" id="count-range" min="1" max="100" value="5">
+                                </div>
+                            </div>
+
+                            <!-- 詳細オプション（類似文字を除外） -->
+                            <div class="setting-group">
+                                <label class="switch-label">
+                                    <div class="switch-info">
+                                        <span class="switch-title">類似文字を除外</span>
+                                        <span class="switch-desc">見間違いやすい文字 (1, l, I, 0, O, o) を除外します</span>
+                                    </div>
+                                    <div class="switch-control">
+                                        <input type="checkbox" id="exclude-similar">
+                                        <span class="switch-slider"></span>
+                                    </div>
+                                </label>
+                            </div>
                         </div>
-                        <div class="switch-control">
-                            <input type="checkbox" id="exclude-similar">
-                            <span class="switch-slider"></span>
-                        </div>
-                    </label>
+                    </div>
                 </div>
             </div>
 

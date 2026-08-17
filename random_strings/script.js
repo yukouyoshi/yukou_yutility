@@ -18,6 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultList = document.getElementById('result-list');
     const btnCopyAll = document.getElementById('btn-copy-all');
     const toastContainer = document.getElementById('toast-container');
+    const btnToggleAdvanced = document.getElementById('btn-toggle-advanced');
+
+    // 詳細設定アコーディオンの開閉トグル
+    if (btnToggleAdvanced) {
+        btnToggleAdvanced.addEventListener('click', () => {
+            const isExpanded = btnToggleAdvanced.getAttribute('aria-expanded') === 'true';
+            btnToggleAdvanced.setAttribute('aria-expanded', !isExpanded);
+        });
+    }
 
     // 文字プール定義
     const CHAR_SETS = {
